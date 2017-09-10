@@ -1,12 +1,16 @@
 ### Schema
 
-CREATE DATABASE cat_db;
-USE cat_db;
+CREATE DATABASE ddas5d1bba36av;
+USE ddas5d1bba36av;
 
-CREATE TABLE cats
+CREATE TABLE review
 (
 	id int NOT NULL AUTO_INCREMENT,
-	name varchar(255) NOT NULL,
-	sleepy BOOLEAN DEFAULT false,
+	Artist varchar(255) NOT NULL,
+	Venue varchar(255) NOT NULL,
+	DateOfReview DATE,
+	DateOfConcert DATE,
+	Review varchar(255) NOT NULL,
+	Helpful INT,
 	PRIMARY KEY (id)
 );
