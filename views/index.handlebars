@@ -1,4 +1,7 @@
 
+
+
+
 <h1>List of Artists</h1>
 
 {{#each x}}
@@ -10,3 +13,17 @@
 </ul>
 
 {{/each}}
+
+Submit a review:
+<form action="/api/" method="post">
+  Artist:<br>
+  <input type="text" name="Artist">
+  <br>
+  Venue:<br>
+  <input type="text" name="Venue">
+  <br><br>
+  Review:<br>
+  <input type="text" name="Review">
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
