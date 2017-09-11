@@ -10,12 +10,10 @@ console.log(review);
 // Create all our routes and set up logic within those routes where required.
 router.get('/', function(req, res) {
   console.log(review);
-  review.findAll().then(review => {
-  console.log(review);
+  review.findAll({raw: true}).then(x => {
+  console.log(x);
+  res.render('index', {x});
 });
-  res.render('index', {
-
-  });
 });
 
 router.post("/", function(req, res) {

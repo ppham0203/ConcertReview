@@ -15,7 +15,8 @@ Review.sync({force: true}).then(() => {
   // Table created
   return Review.create({
     Artist: 'John',
-    Venue: 'Hancock'
+    Venue: 'Hancock',
+    Review:"A signiture event."
   });
 });
 
