@@ -13,10 +13,17 @@ const Review = sequelize.define('review', {
 
 Review.sync({force: true}).then(() => {
   // Table created
+
+  Review.create({
+    Artist: 'Bob',
+    Venue: 'Ross',
+    Review:"Painted a picture."
+  });
+
   return Review.create({
     Artist: 'John',
     Venue: 'Hancock',
-    Review:"A signiture event."
+    Review:"A signature event."
   });
 });
 

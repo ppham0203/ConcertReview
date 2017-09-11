@@ -16,20 +16,20 @@ router.get('/', function(req, res) {
 });
 });
 
-router.post("/", function(req, res) {
-  cat.create([
-    "name", "sleepy"
-  ], [
-    req.body.name, req.body.sleepy
-  ], function() {
-    res.redirect("/");
+
+
+router.post("/:Artist", function(req, res) {
+  var condition = req.params.Artist;
+  console.log(condition);
+  review.findAll({
+    raw: true,
+    where: {
+      Artist: condition
+    }}).then(x => {
+  console.log(x);
+  res.render('index', {x});
   });
-});
 
-router.put("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
-  console.log("condition", condition);
 
   cat.update({
     sleepy: req.body.sleepy
