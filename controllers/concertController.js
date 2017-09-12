@@ -26,7 +26,7 @@ router.post("/s/", function(req, res) {
     }
   }).then(x => {
   console.log(x);
-  res.render('index', {x});
+  res.redirect("/");
   });
 
 });
@@ -60,15 +60,6 @@ res.redirect("/");
 
 });
 
-
-
-router.delete("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
-  cat.delete(condition, function() {
-    res.redirect("/");
-  });
-});
 
 // Export routes for server.js to use.
 module.exports = router;
