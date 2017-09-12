@@ -2,6 +2,11 @@ var express = require("express");
 var app = express();
 var router = express.Router();
 
+app.use('/css',express.static( 'public/assets/css'));
+app.use('/css',express.static( 'public/assets/images'));
+
+
+
 app.set('models', require('../models/reviews.js'));
 var review = app.get('models');
 // console.log(review);
@@ -60,7 +65,6 @@ res.redirect("/");
 
 });
 
-app.use("/public/assets/css", express.static(__dirname + '/public/assets/css'));
 
 // Export routes for server.js to use.
 module.exports = router;
