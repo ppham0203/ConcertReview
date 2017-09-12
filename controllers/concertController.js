@@ -60,6 +60,7 @@ res.redirect("/");
 
 });
 
+app.use("/public", express.static(__dirname + '/public'));
 
 // Export routes for server.js to use.
 module.exports = router;
