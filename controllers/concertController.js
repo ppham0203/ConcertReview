@@ -3,10 +3,6 @@ var app = express();
 var router = express.Router();
 
 
-router.get('/css/style.css', function(req, res){
-  console.log(__dirname + '/../public/assets/css/style.css');
-  app.use(express.static(__dirname + '/../public/assets/css/style.css'));
-});
 
 
 app.set('models', require('../models/reviews.js'));
