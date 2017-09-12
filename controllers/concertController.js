@@ -16,16 +16,15 @@ res.render('index', {x});
 });
 });
 
-
-
-router.post("/:Artist", function(req, res) {
-  var condition = req.params.Artist;
-  console.log(condition);
+router.post("/s/", function(req, res) {
+  console.log(req.param('Artist'));
+  var condition = req.param('Artist');
   review.findAll({
     raw: true,
     where: {
       Artist: condition
-    }}).then(x => {
+    }
+  }).then(x => {
   console.log(x);
   res.render('index', {x});
   });
@@ -33,10 +32,12 @@ router.post("/:Artist", function(req, res) {
 });
 
 
-router.post("/api/:Artist:Venue:Review", function(req, res) {
-  var a = req.body.Artist;
-  var v = req.body.Venue;
-  var r = req.body.Review;
+
+
+router.post("/api/", function(req, res) {
+  var a = req.param('Artist');
+  var v = req.param('Venue');
+  var r = req.param('Review');
   console.log(a);
   console.log(v);
   console.log(r);
@@ -44,9 +45,9 @@ router.post("/api/:Artist:Venue:Review", function(req, res) {
 
   review
     .build({
-        Artist: 'Arnold',
-        Venue: 'Palmer',
-        Review:"Golf."})
+        Artist: a,
+        Venue: v,
+        Review: r})
     .save()
     .catch(error => {
       // Ooops, do some error-handling
