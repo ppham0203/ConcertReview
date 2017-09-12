@@ -14,7 +14,6 @@ router.get("/api/all", function(req, res) {
     });
   });
 
-
 // Create all our routes and set up logic within those routes where required.
 router.get('/', function(req, res) {
   // console.log(review);
@@ -45,9 +44,11 @@ router.post("/review/", function(req, res) {
 router.post("/api/", function(req, res) {
   var a = req.param('Artist');
   var v = req.param('Venue');
+  var d = req.param('Date');
   var r = req.param('Review');
   console.log(a);
   console.log(v);
+  console.log(d);
   console.log(r);
 
 
@@ -55,6 +56,7 @@ router.post("/api/", function(req, res) {
     .build({
         Artist: a,
         Venue: v,
+        DateOfConcert: d,
         Review: r})
     .save()
     .catch(error => {
