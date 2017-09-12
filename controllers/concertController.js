@@ -8,17 +8,23 @@ app.set('models', require('../models/reviews.js'));
 var review = app.get('models');
 // console.log(review);
 
+router.get("/api/all", function(req, res) {
+    review.findAll({}).then(function(results) {
+      res.json(results);
+    });
+  });
+
 
 // Create all our routes and set up logic within those routes where required.
 router.get('/', function(req, res) {
   // console.log(review);
-  review.findAll({raw: true}).then(x => {
+  review.findAll({raw: true, limit: 5}).then(x => {
   // console.log(x);
 res.render('index', {x});
 });
 });
 
-router.post("/s/", function(req, res) {
+router.post("/review/", function(req, res) {
   console.log(req.param('Artist'));
   var condition = req.param('Artist');
   review.findAll({
@@ -56,10 +62,11 @@ router.post("/api/", function(req, res) {
     });
 res.redirect("/");
 
+});
 
+router.get('/add', function(req, res) {
 
-
-
+res.render('addReview');
 });
 
 
