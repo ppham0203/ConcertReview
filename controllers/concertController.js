@@ -1,16 +1,11 @@
 var express = require("express");
 var app = express();
 var router = express.Router();
-var fs = require("fs");
 
 
-function css(request, response) {
-  if (request.url === '/styles.css') {
-    response.writeHead(200, {'Content-type' : 'text/css'});
-    var fileContents = fs.readFileSync('.public/assets/css/style.css', {encoding: 'utf8'});
-    response.write(fileContents);
-  }
-}
+app.get('/css/style.css', function(req, res){
+  res.sendFile(__dirname + 'public/assets/css/style.css');
+});
 
 
 app.set('models', require('../models/reviews.js'));
