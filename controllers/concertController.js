@@ -3,8 +3,6 @@ var app = express();
 var router = express.Router();
 
 
-// app.use(express.static(__dirname + '/public'));
-
 
 app.set('models', require('../models/reviews.js'));
 var review = app.get('models');
