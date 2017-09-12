@@ -26,7 +26,7 @@ router.post("/s/", function(req, res) {
     }
   }).then(x => {
   console.log(x);
-  res.redirect("/");
+  res.render('index', {x});
   });
 
 });
