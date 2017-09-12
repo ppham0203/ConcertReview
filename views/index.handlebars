@@ -28,8 +28,14 @@
   <span class="date-text"> Date: {{DateOfConcert}} | </span>
   Venue: {{Venue}}<hr>
   <p class="review-text"> {{Review}}</p><br>
+  <p class="review-text"> {{Helpful}}</p><br>
+  <form action="/helpful/" method="post" name="helpful"><br>
+    <input type="hidden" class="form-control" value="{{Review}}" name="Review">
+    <input type="hidden" class="form-control" value="+1" name="Helpful">
+    <input type="submit" class="btn btn-default" value="Helpful" method="POST">
+  </form>
+
   <a href="#">View More Reviews</a>
 </div>
 
 {{/each}}
-      
