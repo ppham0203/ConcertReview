@@ -1,0 +1,38 @@
+Enter the name of the artist you would like to search for:
+<form action="/s/" method="post" name="search">
+
+  Artist:<br>
+  <input type="text" name="Artist">
+  <br><br>
+  <input type="submit" value="Submit" method="POST">
+</form>
+
+Placeholder form.
+
+
+
+<h1>List of Artists</h1>
+
+{{#each x}}
+
+<ul>
+  <li>{{Artist}}</li>
+  <li>{{Venue}}</li>
+  <li>{{Review}}</li>
+</ul>
+
+{{/each}}
+
+Submit a review:
+<form action="/api/" method="POST" name="rev">
+  Artist:<br>
+  <input type="text" name="Artist">
+  <br>
+  Venue:<br>
+  <input type="text" name="Venue">
+  <br><br>
+  Review:<br>
+  <input type="text" name="Review">
+  <br><br>
+  <input type="submit" value="Submit">
+</form>

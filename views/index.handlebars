@@ -1,38 +1,40 @@
-Enter the name of the artist you would like to search for:
-<form action="/s/" method="post" name="search">
 
-  Artist:<br>
+
+        <div class="jumbotron" id="home">
+       <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                </div>
+                <div class="col-lg-6">
+                    <div class="center-block">
+                        <h1><center> Concert Review </center></h1>
+
+
+                           <form action="/s/" method="post" name="search"><br>
   <input type="text" name="Artist">
   <br><br>
   <input type="submit" value="Submit" method="POST">
 </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                </div>
+            </div>
+        </div>
 
-Placeholder form.
+
+    </div>
 
 
+    {{#each x}}
 
-<h1>List of Artists</h1>
-
-{{#each x}}
-
-<ul>
-  <li>{{Artist}}</li>
-  <li>{{Venue}}</li>
-  <li>{{Review}}</li>
-</ul>
+<div class="panel panel-default col-lg-12" id="reviewdiv">
+  <span class="artist-text"> Artist: {{Artist}} | </span>
+  <span class="date-text"> Date: {{DateOfConcert}} | </span>
+  Venue: {{Venue}}<hr>
+  <p class="review-text"> {{Review}}</p><br>
+  <a href="#">View More Reviews</a>
+</div>
 
 {{/each}}
-
-Submit a review:
-<form action="/api/" method="POST" name="rev">
-  Artist:<br>
-  <input type="text" name="Artist">
-  <br>
-  Venue:<br>
-  <input type="text" name="Venue">
-  <br><br>
-  Review:<br>
-  <input type="text" name="Review">
-  <br><br>
-  <input type="submit" value="Submit">
-</form>
