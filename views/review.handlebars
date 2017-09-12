@@ -1,0 +1,12 @@
+{{#each x}}
+
+<div class="panel panel-default col-lg-12" id="reviewdiv">
+  <span class="artist-text"> Artist: {{Artist}} | </span>
+  <span class="date-text"> Date: {{DateOfConcert}} | </span>
+  Venue: {{Venue}}<hr>
+  <p class="review-text"> {{Review}}</p><br>
+</div>
+
+{{/each}}
+<br><br>
+<a href="/add" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> Add New Review</a>
