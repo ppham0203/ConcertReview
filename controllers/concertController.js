@@ -3,8 +3,8 @@ var app = express();
 var router = express.Router();
 
 
-app.use('/css',express.static(process.env.PWD+'public/assets/css'));
-app.use('/images',express.static(process.env.PWD+'public/assets/images'));
+router.use('/css',express.static(process.env.PWD+'public/assets/css'));
+router.use('/images',express.static(process.env.PWD+'public/assets/images'));
 
 
 app.set('models', require('../models/reviews.js'));
