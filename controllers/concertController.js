@@ -2,9 +2,14 @@ var express = require("express");
 var app = express();
 var router = express.Router();
 
-app.use('/css',express.static( 'public/assets/css'));
-app.use('/css',express.static( 'public/assets/images'));
 
+function css(request, response) {
+  if (request.url === '/styles.css') {
+    response.writeHead(200, {'Content-type' : 'text/css'});
+    var fileContents = fs.readFileSync('.public/assets/css/style.css', {encoding: 'utf8'});
+    response.write(fileContents);
+  }
+}
 
 
 app.set('models', require('../models/reviews.js'));
