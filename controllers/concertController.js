@@ -2,9 +2,9 @@ var express = require("express");
 var app = express();
 var router = express.Router();
 
-
-router.use('/css',express.static(process.env.PWD+'public/assets/css'));
-router.use('/images',express.static(process.env.PWD+'public/assets/images'));
+//
+// router.use('/css',express.static(process.env.PWD+'public/assets/css'));
+// router.use('/images',express.static(process.env.PWD+'public/assets/images'));
 
 
 app.set('models', require('../models/reviews.js'));
