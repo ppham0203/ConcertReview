@@ -3,8 +3,9 @@ var app = express();
 var router = express.Router();
 
 
-app.get('/css/style.css', function(req, res){
-  res.sendFile(__dirname + 'public/assets/css/style.css');
+router.get('/css/style.css', function(req, res){
+  console.log(__dirname + '/../public/assets/css/style.css');
+  res.sendFile(__dirname + '/../public/assets/css/style.css');
 });
 
 
