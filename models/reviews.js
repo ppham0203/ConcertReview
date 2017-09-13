@@ -20,6 +20,12 @@ Review.sync({force: true}).then(() => {
     Review:"Painted a picture."
   });
 
+  Review.create({
+    Artist: 'Cher',
+    Venue: 'Cher',
+    Review:"Cher"
+  });
+
   return Review.create({
     Artist: 'John',
     Venue: 'Hancock',

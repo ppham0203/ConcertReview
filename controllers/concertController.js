@@ -33,7 +33,7 @@ router.post("/review/", function(req, res) {
     }
   }).then(x => {
   console.log(x);
-  res.render('index', {x});
+  res.render('review', {x});
   });
 
 });
@@ -60,7 +60,7 @@ router.post("/api/", function(req, res) {
         Review: r})
     .save()
     .catch(error => {
-      // Ooops, do some error-handling
+      throw(error);
     });
 res.redirect("/");
 

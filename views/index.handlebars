@@ -2,18 +2,20 @@
 
   <div class="jumbotron" id="home">
     <div class="container">
-      <div class="row">
+      <div class="row" id="search-bar">
         <div class="col-lg-3"></div>
             <div class="col-lg-6">
-              <div class="center-block">
+              <div class="center-block" id="search-bar">
                   <h1><center> Concert Review </center></h1>
 
                 <form action="/review/" method="post" name="search"><br>
-                  <input type="text" class="form-control" placeholder="Search for..." name="Artist">
-                  <input type="submit" class="btn btn-default" value="Go!" method="POST">
+                  <input type="text" class="form-control artist-input" placeholder="Search for..." name="Artist"><br>
+                  <div class="text-center">
+                  <input type="submit" class="btn btn-default select-artist" value="Search!" method="POST">
+                  <a href="/add" class="btn btn-danger"><span class="glyphicon glyphicon-plus"></span> Write a Review</a>
+                  </div>
                 </form>
 
-                <a href="/add" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> Add New Review</a>
               </div>
             </div>
       </div>
@@ -21,21 +23,63 @@
     </div>
   </div>
 
-{{#each x}}
 
-<div class="panel panel-default col-lg-12" id="reviewdiv">
-  <span class="artist-text"> Artist: {{Artist}} | </span>
-  <span class="date-text"> Date: {{DateOfConcert}} | </span>
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-12">
+
+
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><strong>Latest Reviews</strong></h3>
+            </div>
+              <div class="panel-body">
+                {{#each x}}
+
+                    <div class="panel panel-default">
+
+                      <div class="panel-heading"> Artist: {{Artist}} | Date: {{DateOfConcert}} | Venue: {{Venue}}
+                      </div>
+
+                        <div class="panel-body"> {{Review}}
+                        </div>
+                    </div>
+
+              {{/each}}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+<script src="/js/reviewSearch.js" type="text/javascript"></script>
+
+
+<!--Original-->
+<!-- <div class="panel panel-default col-lg-12" id="reviewdiv">
+  <span class="artist-text">Artist:{{Artist}}|</span>
+  <span class="date-text">Date:{{DateOfConcert}}|</span>
   Venue: {{Venue}}<hr>
   <p class="review-text"> {{Review}}</p><br>
-  <p class="review-text"> {{Helpful}}</p><br>
-  <form action="/helpful/" method="post" name="helpful"><br>
-    <input type="hidden" class="form-control" value="{{Review}}" name="Review">
-    <input type="hidden" class="form-control" value="+1" name="Helpful">
-    <input type="submit" class="btn btn-default" value="Helpful" method="POST">
-  </form>
-
   <a href="#">View More Reviews</a>
-</div>
+</div> -->
 
-{{/each}}
+
+
+
+<!--             <div class="panel-body" id="well-section">
+              <div class="well">
+
+                <span class="artist-text">Artist:{{Artist}}|</span>
+                <span class="date-text">Date:{{DateOfConcert}}|</span>
+                Venue: {{Venue}}<hr>
+
+                <p class="review-text"> {{Review}}</p><br>
+
+              </div>
+
+            </div> -->
