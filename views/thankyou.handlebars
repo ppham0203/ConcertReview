@@ -1,0 +1,50 @@
+<div class="container.fluid">
+
+    <div class="row">
+
+        <nav class="nNavbar navbar navbar-default navbar-fixed-top">
+
+
+
+            <img class="tour-logo text-right navbar-brand" src="../assets/images/tour-report.png">
+
+            <form class="col-sm-6 text-left navbar-form navbar-left pull-right">
+
+                {{!--
+                <div class="input-group">
+                    <input type="text" class="artist-input form-control" placeholder="Search for Artist">
+                    <span class="input-group-btn">
+                        	<button class="select-artist btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria hidden="true"></span></button>
+                    </span>
+                </div> --}}
+
+                <a href="/">Home</a> |
+                <a href="/add">Write a Review</a>
+
+            </form>
+
+        </nav>
+
+    </div>
+</div>
+
+
+{{#each x}}
+<div class="row" id="thanks">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <h1>
+                <center>
+                    <font color="red">Your review for {{Artist}} is now live! </font>
+                </center>
+            </h1>
+
+            <div class="panel panel-default col-lg-9" id="reviewdiv">
+                <span class="artist-text"> Artist: {{Artist}} | </span>
+                <span class="date-text"> Date: {{DateOfConcert}} | </span> Venue: {{Venue}}
+                <hr>
+                <p class="review-text"> {{Review}}</p><br>
+                <a href="#">View More Reviews</a>
+            </div>
+
+            {{/each}}

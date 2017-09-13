@@ -23,6 +23,16 @@ res.render('index', {x});
 });
 });
 
+router.get('/thankyou', function(req, res) {
+review.findAll({
+  limit: 1,
+  order: [ [ 'createdAt', 'DESC' ]]
+}).then(x => {
+  // console.log(x);
+res.render('thankyou', {x});
+});
+});
+
 router.post("/review/", function(req, res) {
   console.log(req.param('Artist'));
   var condition = req.param('Artist');
@@ -62,7 +72,7 @@ router.post("/api/", function(req, res) {
     .catch(error => {
       throw(error);
     });
-res.redirect("/");
+res.redirect("/thankyou");
 
 });
 

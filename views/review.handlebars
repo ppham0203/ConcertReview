@@ -1,52 +1,78 @@
+<div class="container.fluid">
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
+  <div class="row">
 
-          <div class="panel panel-danger" id = "bioDiv">
-            <div class="panel-heading">Bio: </div>
-            <div class="panel-body" id ="artist-div"></div>
-          </div>
+    <nav class="nNavbar navbar navbar-default navbar-fixed-top">
 
-        </div>
+
+
+      <img class="tour-logo text-right navbar-brand" src="../assets/images/tour-report.png">
+
+      <form class="col-sm-6 text-left navbar-form navbar-left pull-right">
+
+        {{!--
+        <div class="input-group">
+          <input type="text" class="artist-input form-control" placeholder="Search for Artist">
+          <span class="input-group-btn">
+                        	<button class="select-artist btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria hidden="true"></span></button>
+          </span>
+        </div> --}}
+
+        <a href="/">Home</a> |
+        <a href="/add">Write a Review</a>
+
+      </form>
+
+    </nav>
+
+  </div>
+</div>
+
+<div class="container" id="fm-api">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="panel panel-danger" id="bioDiv">
+        <div class="panel-heading">Bio: </div>
+        <div class="panel-body" id="artist-div"></div>
+      </div>
+
     </div>
+  </div>
 </div>
 
 
 
-    <div class="container">
-      <div class="row">
+<div class="container">
+  <div class="row">
 
-        <div class="col-lg-12">
+    <div class="col-lg-12">
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Artist Reviews</strong></h3>
+        </div>
+        <div class="panel-body">
+          {{#each x}}
 
           <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title"><strong>Artist Reviews</strong></h3>
+
+            <div class="panel-heading"> Artist: {{Artist}} | Date: {{DateOfConcert}} | Venue: {{Venue}}
             </div>
-              <div class="panel-body">
-                {{#each x}}
 
-                    <div class="panel panel-default">
-
-                      <div class="panel-heading"> Artist: {{Artist}} | Date: {{DateOfConcert}} | Venue: {{Venue}}
-                      </div>
-
-                        <div class="panel-body"> {{Review}}
-                        </div>
-                    </div>
-
-              {{/each}}
+            <div class="panel-body"> {{Review}}
             </div>
           </div>
 
+          {{/each}}
         </div>
       </div>
+
     </div>
+  </div>
+</div>
 
 <br><br>
-<a href="/add" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> Write a Review</a>
-
-<a href="/" class="btn btn-primary btn-lg"><span class="glyphicon"></span>Home</a>
 
 
-<script src="/js/reviewSearch.js" type="text/javascript"></script> 
+<script src="/js/reviewSearch.js" type="text/javascript"></script>

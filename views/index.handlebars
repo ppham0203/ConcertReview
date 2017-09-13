@@ -1,85 +1,97 @@
+<div class="container" id="home">
+  <div class="row">
+    <div class="col-lg-3">
+    </div>
+    <div class="col-lg-6">
+      <div class="center-block" align="center">
+        <center><img src="../assets/images/tour-report.png"></center>
 
 
-  <div class="jumbotron" id="home">
-    <div class="container">
-      <div class="row" id="search-bar">
-        <div class="col-lg-3"></div>
-            <div class="col-lg-6">
-              <div class="center-block" id="search-bar">
-                  <h1><center> Concert Review </center></h1>
-
-                <form action="/review/" method="post" name="search"><br>
-                  <input type="text" class="form-control artist-input" placeholder="Search for..." name="Artist"><br>
-                  <div class="text-center">
-                  <input type="submit" class="btn btn-default select-artist" value="Search!" method="POST">
-                  <a href="/add" class="btn btn-danger"><span class="glyphicon glyphicon-plus"></span> Write a Review</a>
-                  </div>
-                </form>
-
-              </div>
-            </div>
+        <form action="/review/" method="post" name="search"><br>
+          <input type="text" class="form-control artist-input" placeholder="Search for..." name="Artist"><br>
+          <div class="text-center">
+            <input type="submit" class="btn btn-default select-artist" value="Search!" method="POST">
+            <a href="/add" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Write a Review</a>
+          </div>
+        </form>
       </div>
-            <div class="col-lg-3"></div>
     </div>
   </div>
+  <div class="col-lg-3">
+  </div>
+</div>
+</div>
 
 
-    <div class="container">
-      <div class="row">
+</div>
 
-        <div class="col-lg-12">
+<div class="container review-container">
+  <div class="row next-review">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <h1>
+          <center>Your Next Review Awaits</center>
+        </h1>
 
 
+        <div class="panel-body" align="center">
+          <form action="/api/" method="POST" name="rev">
+            <label for="">Artist</label>
+            <input type="text" class="form-control review-main" name="Artist"><br>
 
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title"><strong>Latest Reviews</strong></h3>
-            </div>
-              <div class="panel-body">
-                {{#each x}}
+            <label for="">Venue</label>
+            <input type="text" class="form-control review-main" name="Venue"><br>
 
-                    <div class="panel panel-default">
 
-                      <div class="panel-heading"> Artist: {{Artist}} | Date: {{DateOfConcert}} | Venue: {{Venue}}
-                      </div>
+            <label for="">Date</label>
+            <input type="date" class="form-control review-main" name="Date"><br>
 
-                        <div class="panel-body"> {{Review}}
-                        </div>
-                    </div>
 
-              {{/each}}
-            </div>
-          </div>
+            <label for="">Review</label>
+            <input type="text" class="form-control review-main" name="Review"><br>
 
+            <input type="submit" class="btn btn-primary btn-md" value="Submit">
+          </form>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-12">
+
+
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Latest Reviews</strong></h3>
+        </div>
+        <div class="panel-body">
+          {{#each x}}
+
+          <div class="panel panel-default">
+
+            <div class="panel-heading"> Artist: {{Artist}} | Date: {{DateOfConcert}} | Venue: {{Venue}}
+            </div>
+
+            <div class="panel-body"> {{Review}}
+            </div>
+          </div>
+
+          {{/each}}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 
 <script src="/js/reviewSearch.js" type="text/javascript"></script>
 
 
-<!--Original-->
-<!-- <div class="panel panel-default col-lg-12" id="reviewdiv">
-  <span class="artist-text">Artist:{{Artist}}|</span>
-  <span class="date-text">Date:{{DateOfConcert}}|</span>
-  Venue: {{Venue}}<hr>
-  <p class="review-text"> {{Review}}</p><br>
-  <a href="#">View More Reviews</a>
-</div> -->
-
-
-
-
-<!--             <div class="panel-body" id="well-section">
-              <div class="well">
-
-                <span class="artist-text">Artist:{{Artist}}|</span>
-                <span class="date-text">Date:{{DateOfConcert}}|</span>
-                Venue: {{Venue}}<hr>
-
-                <p class="review-text"> {{Review}}</p><br>
-
-              </div>
-
-            </div> -->
+<script src="/js/reviewSearch.js" type="text/javascript"></script>

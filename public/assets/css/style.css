@@ -1,28 +1,41 @@
 #home {
   height: 600px;
   background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.8;
-  background-image: url("/assets/images/concert_background.jpg");
-  max-width: 100%;
+  background-position: center; 
+  opacity: 0.9;
+  background-image: url("../images/background2.jpg");
+  width: 100%;
+  background-size: cover;
   color: white;
 }
 
-.center-block {
-height: 50%;
+.next-review {
+color: #428bca;
+}
 
+.review-main{
+  width: 350px;
+}
+
+.form-control{
+color: black;
+
+}
+
+.review-container {
+margin-top: 30px;
 
 }
 
 #reviewdiv{
 background-color: white;
 color: black;
-padding: 25px;
+padding: 15px;
 height: auto;
-margin-top: 5px;
-margin-left:20px;
-margin-right:20px;
-display: block;
+margin-top: 70px;
+margin-left:160px; 
+
+
 }
 
 .review-text {
@@ -30,11 +43,44 @@ font-size: 20px;
 }
 
 .date-text {
-  padding-left: 15px;
+  padding-left: 20px;
 
 }
 
 .artist-text {
   padding-left: 15px;
 
+}
+
+.tour-logo{
+width: 50px;
+height: 50px;
+
+}
+
+.artist-review{
+margin-top: 70px;
+
+}
+
+.song-api{
+
+  margin-top: 90px;
+}
+
+#thanks{
+
+  margin-top:50px;
+
+}
+
+#fm-api {
+
+  margin-top:60px;
+
+}
+
+#add-review{
+
+  margin-top: 60px;
 }
