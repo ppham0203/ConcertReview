@@ -17,7 +17,7 @@ router.get("/api/all", function(req, res) {
 // Create all our routes and set up logic within those routes where required.
 router.get('/', function(req, res) {
   // console.log(review);
-  review.findAll({raw: true, limit: 5}).then(x => {
+  review.findAll({raw: true, limit: 5, order: [['createdAt', 'DESC']]}).then(x => {
   // console.log(x);
 res.render('index', {x});
 });
