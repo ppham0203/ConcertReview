@@ -87,6 +87,10 @@ router.get('/add', function(req, res) {
 res.render('addReview');
 });
 
+router.get('/buy', function(req, res) {
+
+  res.render('buytickets');
+  });
 
 
 // Export routes for server.js to use.

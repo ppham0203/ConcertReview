@@ -3,6 +3,7 @@ $(document).ready(function(){
   var artist = localStorage.getItem('_artist');
   console.log( "ready!" );
   searchArtists(artist);
+  ticketSearch(artist);
   $(".select-artist").on("click", function(event) {
 
 
@@ -47,10 +48,53 @@ function searchArtists(artist) {
             artistImage.css("margin-right", "10px");
         }
       );
-
     }
+});
 
 
+
+
+function ticketSearch(artist) {
+    $(".div").empty();
+    var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artist + "&classificationName=music&countryCode=US&apikey=8Tvqs6GD3WAR3yzGQutUM67fbguu78VT";
+
+    //Uses ajax to pull events from TicketMaster API
+    $.ajax({
+        url: queryURL,
+        methond: "GET"
+    }).done(function (response) {
+        console.log(response);
+
+        for (var i = 0; i < response._embedded.events.length; i++) {
+            arr = response._embedded.events;
+
+            arr.sort(function compare(a, b) {
+                var dateA = new Date(a.dates.start.localDate);
+                var dateB = new Date(b.dates.start.localDate);
+                return dateA - dateB;
+            });
+            var name = $("<p class='name'>").text(response._embedded.events[i].name);
+            var eventDate = $("<p class='date'>").text(response._embedded.events[i].dates.start.localDate);
+            var venue = $("<p class='venue'>").text(response._embedded.events[i]._embedded.venues[0].name);
+            var ticketLink = $("<p><a class='tix' href='" + response._embedded.events[i].url + "'>Get Tickets!</a></p>");
+            $("#date-div").append(eventDate);
+            $("#venue-div").append(venue);
+            $("#name-div").append(name);
+            $("#ticket-div").append(ticketLink);
+
+
+        }
+        var urlTix = $("<p><a class='tix' href='/buy'>Buy Upcoming Tour Tickets</a></p>");
+        $("#artist-div").append(urlTix);
+    });
+
+}
+
+
+
+// helpfulness button click function
+
+$("#like-btn").on("click", function (event) {
 
 
 });
