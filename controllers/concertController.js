@@ -64,7 +64,7 @@ router.post("/api", function(req, res) {
   console.log(d);
   console.log(r);
 
-
+if (a !== null && v !== null && d !== null && r !==null){
     review
       .build({
           Artist: a,
@@ -76,6 +76,10 @@ router.post("/api", function(req, res) {
         console.log(error);
       });
   res.redirect("/thankyou");
+}else{
+  res.redirect("/review");
+}
+
 });
 
 router.get('/add', function(req, res) {
