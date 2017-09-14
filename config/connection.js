@@ -8,11 +8,13 @@ const sequelize = new Sequelize('postgres://zokizcuocorcfk:b11e184bfbfcc802004e9
 //   pool: {
 //     max: 5,
 //     min: 0,
-//     idle: 10000
+//     idle: 1000
 //   },
 //
 // });
 
+
+function connect() {
 sequelize
   .authenticate()
   .then(() => {
@@ -21,4 +23,8 @@ sequelize
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
+}
+
+connect();
+
 module.exports = sequelize;
