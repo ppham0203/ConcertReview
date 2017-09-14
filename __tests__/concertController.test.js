@@ -25,5 +25,8 @@ describe('Test the root path', () => {
     test('It should response the GET method /add', () => {
         return request(app).get('/add').expect(200);
     });
+    test('It should response the GET method /buy', () => {
+        return request(app).get('/buy').expect(200);
+    });
 
 });
