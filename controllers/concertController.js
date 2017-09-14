@@ -89,7 +89,7 @@ res.render('addReview');
 
 router.get('/buy', function(req, res) {
 
-  res.render('buytickets');
+  res.render('buyTickets');
   });
 
 
