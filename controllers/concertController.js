@@ -64,7 +64,7 @@ router.post("/api", function(req, res) {
   console.log(d);
   console.log(r);
 
-if (a !== null && v !== null && d !== null && r !==null){
+if (a != "" && v !== "" && d !== "" && r !==""){
     review
       .build({
           Artist: a,
