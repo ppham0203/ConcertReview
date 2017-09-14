@@ -14,23 +14,23 @@ const Review = sequelize.define('review', {
 Review.sync({force: true}).then(() => {
   // Table created
 
-  Review.create({
-    Artist: 'Bob',
-    Venue: 'Ross',
-    Review:"Painted a picture."
-  });
 
-  Review.create({
-    Artist: 'Cher',
-    Venue: 'Cher',
-    Review:"Cher"
-  });
+    Review.create({
+      Artist: 'Michael Jackson',
+      Venue: 'O2 Arena',
+      Review:"Awesome Show!!!!"
+    });
 
-  return Review.create({
-    Artist: 'John',
-    Venue: 'Hancock',
-    Review:"A signature event."
-  });
-});
+    Review.create({
+      Artist: 'Cher',
+      Venue: 'Forum',
+      Review:"Left after one song"
+    });
 
+    return Review.create({
+      Artist: 'Kendrick Lamar',
+      Venue: 'United Center',
+      Review:"Such a good time, a really fun concert!"
+    });
+  });
 module.exports = Review;
