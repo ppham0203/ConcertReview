@@ -77,7 +77,7 @@ if (a != "" && v !== "" && d !== "" && r !==""){
       });
   res.redirect("/thankyou");
 }else{
-  res.redirect("/review");
+  res.render('review');
 }
 
 });
