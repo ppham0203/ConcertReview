@@ -6,10 +6,10 @@ var DBConnectionMock = new SequelizeMock();
 
 // Define our Model
 var Review = DBConnectionMock.define('review', {
-        'Artist': 'Cher',
-        'Venue': 'Cher',
-        'Review': 'Cher',
-    });
+    'Artist': 'Cher',
+    'Venue': 'Cher',
+    'Review': 'Cher',
+});
 
 // You can also associate mock models as well
 var GroupMock = DBConnectionMock.define('groups', {
@@ -23,14 +23,14 @@ Review.findOne({
     where: {
         Artist: 'Cher',
     },
-}).then(function (user) {
+}).then(function(user) {
     // `user` is a Sequelize Model-like object
-    user.get('Artist');         // Auto-Incrementing ID available on all Models
-    user.get('Venue');      // 'email@example.com'; Pulled from default values
-    user.get('Review');   // 'my-user'; Pulled from the `where` in the query
+    user.get('Artist'); // Auto-Incrementing ID available on all Models
+    user.get('Venue'); // 'email@example.com'; Pulled from default values
+    user.get('Review'); // 'my-user'; Pulled from the `where` in the query
 
 
-    user.getGroup();        // Will return a `GroupMock` object
+    user.getGroup(); // Will return a `GroupMock` object
 });
 
 

@@ -1,5 +1,4 @@
-
-$(document).ready(function () {
+$(document).ready(function() {
     // Some code to be executed...
     var artist = localStorage.getItem('_artist');
     console.log("ready!");
@@ -7,7 +6,7 @@ $(document).ready(function () {
     ticketSearch(artist);
 
 
-    $(".search-fix").on("click", function (event) {
+    $(".search-fix").on("click", function(event) {
 
 
         // Storing the artist name
@@ -27,7 +26,7 @@ $(document).ready(function () {
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).done(function (response) {
+        }).done(function(response) {
 
             // Printing the entire object to console
             console.log(response);
@@ -47,11 +46,9 @@ $(document).ready(function () {
             $("#artist-div").append(artistURL, artistImage, Bio);
             artistImage.css("float", "left");
             artistImage.css("margin-right", "10px");
-        }
-            );
+        });
     }
 });
-
 
 
 
@@ -64,7 +61,7 @@ function ticketSearch(artist) {
     $.ajax({
         url: queryURL,
         methond: "GET"
-    }).done(function (response) {
+    }).done(function(response) {
         console.log(response);
 
         for (var i = 0; i < response._embedded.events.length; i++) {
@@ -109,7 +106,7 @@ function ticketSearch(artist) {
 
 // helpfulness button click function
 
-$("#like-btn").on("click", function (event) {
+$("#like-btn").on("click", function(event) {
 
 
 });

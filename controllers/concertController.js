@@ -108,7 +108,7 @@ router.post("/api", function(req, res) {
     var r = req.param('Review');
     console.log(a);
     console.log(v);
-    console.log(d);
+    console.log(d.slice(0, 11));
     console.log(r);
 
     if (a != "" && v !== "" && d !== "" && r !== "") {

@@ -3,34 +3,36 @@ var sequelize = require('../config/connection.js'); //sequelize instance
 
 
 const Review = sequelize.define('review', {
-  Artist: Sequelize.STRING,
-  Venue: Sequelize.STRING,
-  DateOfReview: Sequelize.DATE,
-  DateOfConcert: Sequelize.DATE,
-  Review: Sequelize.STRING,
-  Helpful: Sequelize.INTEGER
+    Artist: Sequelize.STRING,
+    Venue: Sequelize.STRING,
+    DateOfReview: Sequelize.DATE,
+    DateOfConcert: Sequelize.DATE,
+    Review: Sequelize.STRING,
+    Helpful: Sequelize.INTEGER
 });
 
-Review.sync({force: true}).then(() => {
-  // Table created
+Review.sync({
+    force: true
+}).then(() => {
+    // Table created
 
 
     Review.create({
-      Artist: 'Michael Jackson',
-      Venue: 'O2 Arena',
-      Review:"Awesome Show!!!!"
+        Artist: 'Michael Jackson',
+        Venue: 'O2 Arena',
+        Review: "Awesome Show!!!!"
     });
 
     Review.create({
-      Artist: 'Cher',
-      Venue: 'Forum',
-      Review:"Left after one song"
+        Artist: 'Cher',
+        Venue: 'Forum',
+        Review: "Left after one song"
     });
 
     return Review.create({
-      Artist: 'Kendrick Lamar',
-      Venue: 'United Center',
-      Review:"Such a good time, a really fun concert!"
+        Artist: 'Kendrick Lamar',
+        Venue: 'United Center',
+        Review: "Such a good time, a really fun concert!"
     });
-  });
+});
 module.exports = Review;
