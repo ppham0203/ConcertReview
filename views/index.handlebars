@@ -7,7 +7,7 @@
         <center><img src="../assets/images/logo.png"></center>
 
 
-        <form action="/review/" method="post" name="search"><br>
+        <form action="/review/" method="post" class="search"><br>
           <input type="text" class="form-control artist-input" placeholder="Search for..." name="Artist"><br>
           <div class="text-center">
             <input type="submit" class="btn btn-primary select-artist" value="Search!" method="POST">
@@ -48,7 +48,7 @@
 
             <label for="">Date</label>
             <input type="date" class="form-control review-main" name="Date"><br>
-            
+
             <div class="form-group">
               <label for="textArea">Review</label>
               <textarea class="form-control review-main" rows="5" id="textArea" name="Review"></textarea>
@@ -85,6 +85,15 @@
             <div class="panel-body"> {{Review}}
             </div>
           </div>
+
+
+          <form action="/review/" method="post" class="search"><br>
+            <div class="text-center">
+              <input type="hidden" class="form-control artist-input"  name="Artist" value="{{Artist}}"><br>
+              <input type="submit" class="btn btn-primary select-artist" value="Search!" method="POST">
+            </div>
+          </form>
+
 
           {{/each}}
         </div>

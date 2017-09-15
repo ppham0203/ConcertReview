@@ -45,7 +45,9 @@ router.post("/review", function(req, res) {
     review.findAll({
       raw: true,
       where: {
-        Artist: condition
+        Artist: {
+          $iLike: condition
+        }
       }
     }).then(x => {
     console.log(x);

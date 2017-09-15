@@ -4,13 +4,13 @@ $(document).ready(function(){
   console.log( "ready!" );
   searchArtists(artist);
   ticketSearch(artist);
-  $(".select-artist").on("click", function(event) {
 
 
-      $("#bioDiv").show();
+  $(".search").on("click", function(event) {
+
 
       // Storing the artist name
-      artist = $(".artist-input").val().trim();
+      artist = $(this).find(".artist-input").val().trim();
       localStorage.clear();
       localStorage.setItem('_artist', artist);
 
