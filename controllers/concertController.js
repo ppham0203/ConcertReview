@@ -1,9 +1,12 @@
 var express = require("express");
 var app = express();
 var router = express.Router();
+var handlebars = require('handlebars');
+handlebars.registerHelper('date', require('helper-date'));
 
 app.set('models', require('../models/review.js'));
 var review = app.get('models');
+
 
 
 
