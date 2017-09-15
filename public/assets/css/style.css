@@ -9,6 +9,7 @@
   color: white;
 }
 
+
 .next-review {
   font-weight: bold;
   font-size: 25px;
@@ -74,16 +75,7 @@ margin-top: 70px;
 
 }
 
-#fm-api {
 
-  margin-top:60px;
-
-}
-
-#add-review{
-
-  margin: 50px;
-}
 
 #search-navbar {
   width: 250px;
@@ -111,3 +103,16 @@ p {
   padding-right: 25px;
 
 }
+
+
+#artist-div {
+width: 100%;
+
+}
+
+.infobox {
+border-bottom: 2px;
+border-color: white;
+
+}
+

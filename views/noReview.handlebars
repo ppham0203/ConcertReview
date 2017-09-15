@@ -25,30 +25,39 @@
   </div>
 </nav>
 
-
-
-<div class="container" id="ticketmaster-api">
+<div class="container" id="fm-api">
   <div class="row">
     <div class="col-md-12">
 
-      <div class="panel panel-primary" id="buy-tix">
-        <div class="panel-heading">Upcoming Shows </div>
-        <div class="panel-body" id="testing">
-          <div class="col-md-3" id="date-div">
-            Date:
-          </div>
-          <div class="col-md-3" id="venue-div">
-            Location:
-          </div>
-          <div class="col-md-3" id="name-div">
-            Artist:
-          </div>
-          <div class="col-md-3" id="ticket-div">
-            Buy:
-          </div>
-        </div>
+      <div class="panel panel-primary" id="bioDiv">
+      
+        <div class="panel-body" id="artist-div"></div>
       </div>
+
     </div>
   </div>
+</div>
 
-  <script src="/js/reviewSearch.js" type="text/javascript"></script>
+{{#each x}}
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-12">
+
+      <div class="panel panel-primary">
+        <div class="panel-body no-review">
+           
+       <h2><center>No reviews yet.. Be the first to <a href='/add'>Submit a Review!</a> </center></h2>
+        
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{{/each}}
+<br><br>
+
+
+<script src="/js/reviewSearch.js" type="text/javascript"></script>

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container-fluid navibar">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -11,7 +11,7 @@
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <form action="/review/" method="post" name="search" class="navbar-form navbar-left" role="search">
+      <form action="/review/" method="post" name="search" class="navbar-form navbar-left search-fix" role="search">
         <div class="form-group">
           <input type="text" class="form-control artist-input" id="search-navbar" placeholder="Search" name="Artist">
         </div>
@@ -30,7 +30,7 @@
     <div class="col-md-12">
 
       <div class="panel panel-primary" id="bioDiv">
-        <div class="panel-heading">Bio: </div>
+       
         <div class="panel-body" id="artist-div"></div>
       </div>
 
@@ -57,7 +57,10 @@
             <div class="panel-heading"> Artist: {{Artist}} | Date: {{DateOfConcert}} | Venue: {{Venue}}
             </div>
 
-            <div class="panel-body"> {{Review}}
+            <div class="panel-body"> <h4>{{Review}}<h4><br>
+              <div class="btn-group btn-group-xs" role="group" aria-label="...">
+               <button type="submit" class="btn btn-primary btn-group btn-group-sm"><i class="glyphicon glyphicon-arrow-up"></i>Like</button>
+                <button type="submit" class="btn btn-danger btn-group btn-group-sm"><i class="glyphicon glyphicon-arrow-down"></i>Dislike</button></div>
             </div>
           </div>
 

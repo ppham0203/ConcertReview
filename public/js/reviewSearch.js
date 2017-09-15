@@ -1,32 +1,33 @@
-$(document).ready(function(){
-  // Some code to be executed...
-  var artist = localStorage.getItem('_artist');
-  console.log( "ready!" );
-  searchArtists(artist);
-  ticketSearch(artist);
+
+$(document).ready(function () {
+    // Some code to be executed...
+    var artist = localStorage.getItem('_artist');
+    console.log("ready!");
+    searchArtists(artist);
+    ticketSearch(artist);
 
 
-  $(".search").on("click", function(event) {
+    $(".search-fix").on("click", function (event) {
 
 
-      // Storing the artist name
-      artist = $(this).find(".artist-input").val().trim();
-      localStorage.clear();
-      localStorage.setItem('_artist', artist);
+        // Storing the artist name
+        artist = $(this).find(".artist-input").val().trim();
+        localStorage.clear();
+        localStorage.setItem('_artist', artist);
 
-      // Running the searchArtists function (passing in the artist as an argument)
-      searchArtists(artist);
-  });
+        // Running the searchArtists function (passing in the artist as an argument)
+        searchArtists(artist);
+    });
 
 
-function searchArtists(artist) {
+    function searchArtists(artist) {
 
-    // Querying the bandsintown api for the selected artist, the ?app_id parameter is required, but can equal anything
-    var queryURL = "https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=8ce559d2fd9f4e234a3ac172db2d0ef6&format=json";
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).done(function(response) {
+        // Querying the bandsintown api for the selected artist, the ?app_id parameter is required, but can equal anything
+        var queryURL = "https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=8ce559d2fd9f4e234a3ac172db2d0ef6&format=json";
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).done(function (response) {
 
             // Printing the entire object to console
             console.log(response);
@@ -47,9 +48,10 @@ function searchArtists(artist) {
             artistImage.css("float", "left");
             artistImage.css("margin-right", "10px");
         }
-      );
+            );
     }
 });
+
 
 
 
@@ -77,14 +79,27 @@ function ticketSearch(artist) {
             var eventDate = $("<p class='date'>").text(response._embedded.events[i].dates.start.localDate);
             var venue = $("<p class='venue'>").text(response._embedded.events[i]._embedded.venues[0].name);
             var ticketLink = $("<p><a class='tix' href='" + response._embedded.events[i].url + "'>Get Tickets!</a></p>");
-            $("#date-div").append(eventDate);
-            $("#venue-div").append(venue);
-            $("#name-div").append(name);
-            $("#ticket-div").append(ticketLink);
+            var newDiv = $("<div class='row'>");
+            var box = $("<div class='infobox' class='gameinfo'>");
+            var divCol1 = $("<div class='col-md-3'>");
+            var divCol2 = $("<div class='col-md-3'>");
+            var divCol3 = $("<div class='col-md-3'>");
+            var divCol4 = $("<div class='col-md-3'>");
+            var line = $("<hr>");
 
-
+            $("#buy-tix").append(newDiv);
+            newDiv.append(box);
+            box.append(divCol1);
+            box.append(divCol2);
+            box.append(divCol3);
+            box.append(divCol4);
+            divCol1.append(eventDate);
+            divCol2.append(venue);
+            divCol3.append(name);
+            divCol4.append(ticketLink);
+            box.append(line);
         }
-        var urlTix = $("<p><a class='tix' href='/buy'>Buy Upcoming Tour Tickets</a></p>");
+        var urlTix = $("<p><a class='btn btn-success review-btn-navbar' href='/buy'>Buy Upcoming Tour Tickets</a></p>");
         $("#artist-div").append(urlTix);
     });
 

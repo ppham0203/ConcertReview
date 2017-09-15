@@ -19,6 +19,9 @@ describe('Test the root path', () => {
     test('It should response the POST method /review', () => {
         return request(app).post('/review').expect(200);
     });
+    test('It should response the GET method /noreview', () => {
+        return request(app).get('/review').expect(200);
+    });
     test('It should response the POST method /api', () => {
         return request(app).post('/api').expect(302);
     });
