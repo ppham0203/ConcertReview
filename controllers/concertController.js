@@ -3,11 +3,10 @@ var app = express();
 var router = express.Router();
 var handlebars = require('handlebars');
 handlebars.registerHelper('date', require('helper-date'));
+var sequelize = require('../config/connection.js');
 
 app.set('models', require('../models/review.js'));
 var review = app.get('models');
-
-
 
 
 router.get("/api/all", function(req, res) {
@@ -15,6 +14,7 @@ router.get("/api/all", function(req, res) {
         res.json(results);
     });
 });
+
 
 router.get("/api/:Artist", function(req, res) {
     if (req.param('Artist')) {
@@ -33,7 +33,7 @@ router.get('/', function(req, res) {
 
     review.findAll({
         raw: true,
-        limit: 5,
+        limit: 7,
         order: [
             [
                 'createdAt',
@@ -42,10 +42,8 @@ router.get('/', function(req, res) {
         ]
     }).then(x => {
 
-        res.render('index', {
-            x
-        });
-    });
+        res.render('index', { x });
+  });
 });
 
 router.get('/thankyou', function(req, res) {
@@ -56,9 +54,7 @@ router.get('/thankyou', function(req, res) {
         ]
     }).then(x => {
         // console.log(x);
-        res.render('thankyou', {
-            x
-        });
+        res.render('thankyou', { x });
     });
 });
 
@@ -67,12 +63,7 @@ router.post("/review", function(req, res) {
     var condition = req.param('Artist');
     review.findAll({
         raw: true,
-        order: [
-            [
-                'createdAt',
-                'DESC'
-            ]
-        ],
+    order: [['Helpful', 'DESC']],
         where: {
             Artist: {
                 $iLike: condition
@@ -83,9 +74,7 @@ router.post("/review", function(req, res) {
         if (x.length == 0) {
             res.redirect('/noreview');
         } else {
-            res.render('review', {
-                x
-            });
+            res.render('review', { x });
         }
     });
 });
@@ -98,10 +87,8 @@ router.get('/noreview', function(req, res) {
         ]
     }).then(x => {
         // console.log(x);
-        res.render('noReview', {
-            x
-        });
-    });
+        res.render('noReview', { x });
+  });
 });
 
 router.post("/api", function(req, res) {
@@ -111,7 +98,7 @@ router.post("/api", function(req, res) {
     var r = req.param('Review');
     console.log(a);
     console.log(v);
-    console.log(d.slice(0, 11));
+    console.log(d);
     console.log(r);
 
     if (a != "" && v !== "" && d !== "" && r !== "") {
@@ -141,6 +128,27 @@ router.get('/add', function(req, res) {
 router.get('/buy', function(req, res) {
 
     res.render('buyTickets');
+});
+
+router.post("/helpful/:id/like", function (req, res) {
+  review.update({ Helpful: sequelize.literal("Helpful + 1") },
+    { where: { Artist: req.params.id } })
+    .then(function (results) {
+      console.log(results);
+      console.log('return from update');
+      res.json(results);
+    });
+});
+
+
+router.post("/helpful/:id/dislike", function (req, res) {
+  review.update({ Helpful: sequelize.literal("Helpful - 1") },
+    { where: { Artist: req.params.id } })
+    .then(function (results) {
+      console.log(results);
+      console.log('return from update');
+      res.json(results);
+    });
 });
 
 
