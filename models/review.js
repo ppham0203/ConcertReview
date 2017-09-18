@@ -6,7 +6,7 @@ const Review = sequelize.define('review', {
     Artist: Sequelize.STRING,
     Venue: Sequelize.STRING,
     DateOfReview: Sequelize.DATE,
-    DateOfConcert: Sequelize.DATE,
+    DateOfConcert: Sequelize.STRING,
     Review: Sequelize.STRING(5000),
     Helpful: Sequelize.INTEGER
 });
