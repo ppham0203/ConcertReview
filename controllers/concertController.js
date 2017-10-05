@@ -28,7 +28,7 @@ router.get("/api/:Artist", function(req, res) {
     }
 });
 
-// Create all our routes and set up logic within those routes where required.
+// Get method used to display the 7 latest reviews on homepage.
 router.get('/', function(req, res) {
 
     review.findAll({
@@ -58,6 +58,7 @@ router.get('/thankyou', function(req, res) {
     });
 });
 
+// Post Method used once user submits artist search. Shows reviews with highest helpful score first.
 router.post("/review", function(req, res) {
     console.log(req.param('Artist'));
     var condition = req.param('Artist');
@@ -65,9 +66,8 @@ router.post("/review", function(req, res) {
         raw: true,
     order: [['Helpful', 'DESC']],
         where: {
-            Artist: {
-                $iLike: condition
-            }
+            Artist:  condition
+            
         }
     }).then(x => {
         console.log(x);
@@ -130,6 +130,8 @@ router.get('/buy', function(req, res) {
     res.render('buyTickets');
 });
 
+
+// Post method used when user clicks on Like Button for review, increasing the "helpful" field by 1
 router.post("/helpful/:id/like", function (req, res) {
   review.update({ Helpful: sequelize.literal("Helpful + 1") },
     { where: { Artist: req.params.id } })
@@ -140,7 +142,7 @@ router.post("/helpful/:id/like", function (req, res) {
     });
 });
 
-
+// Post method used when user clicks on Dislike Button for review, decreasing the "helpful" field by 1
 router.post("/helpful/:id/dislike", function (req, res) {
   review.update({ Helpful: sequelize.literal("Helpful - 1") },
     { where: { Artist: req.params.id } })

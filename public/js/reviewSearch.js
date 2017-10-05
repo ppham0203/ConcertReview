@@ -107,6 +107,11 @@ function ticketSearch(artist) {
 
 
 
+bootstrap_alert = function() {}
+bootstrap_alert.warning = function(message) {
+            $('#alert_placeholder').html('<div class="alert"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>')
+        }
+
 // like button click function
 
 $("#like-btn").on("click", function (event) {
@@ -114,10 +119,12 @@ $("#like-btn").on("click", function (event) {
     console.log('event.target', event.target);
     var name = $(this).data('name');
     console.log(name);
-
+    bootstrap_alert.warning('liked! Thank you');
     $.ajax({
     method: 'POST',
-    url: '/helpful/' + name + '/like' 
+    url: '/helpful/' + name + '/like'
+    
+    
   });
 });
 
@@ -133,4 +140,5 @@ $("#dislike-btn").on("click", function (event) {
     url: '/helpful/' + name + '/dislike' 
   });
 });
+
 
