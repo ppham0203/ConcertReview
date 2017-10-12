@@ -14,18 +14,6 @@ const Sequelize = require('sequelize');
 // // });
 
 
-// function connect() {
-//     sequelize
-//         .authenticate()
-//         .then(() => {
-//             console.log('Connection has been established successfully.');
-//         })
-//         .catch(err => {
-//             console.error('Unable to connect to the database:', err);
-//         });
-// }
-
-// connect();
 
 
 
@@ -39,7 +27,19 @@ var sequelize = new Sequelize("concert_reviews", "root", "guppies1", {
     }
   });
   
- 
+ function connect() {
+    sequelize
+        .authenticate()
+        .then(() => {
+            console.log('Connection has been established successfully.');
+        })
+        .catch(err => {
+            console.error('Unable to connect to the database:', err);
+        });
+}
+
+connect();
+
 
 
 module.exports = sequelize;
