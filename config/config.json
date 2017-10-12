@@ -15,9 +15,9 @@
   },
   "production": {
     "username": "root",
-    "password": null,
-    "database": "ddas5d1bba36av",
+    "password": "guppies1",
+    "database": "concert_reviews",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "mysql"
   }
 }
