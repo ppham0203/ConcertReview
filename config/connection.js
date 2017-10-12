@@ -43,3 +43,7 @@ connect();
 
 
 module.exports = sequelize;
+
+
+
+
