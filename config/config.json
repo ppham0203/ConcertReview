@@ -2,21 +2,21 @@
   "development": {
     "username": "root",
     "password": "guppies1",
-    "database": "heroku_65f456f11c8611d",
+    "database": "concert_review",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "guppies1",
-    "database": "heroku_65f456f11c8611d",
+    "database": "concert_review",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
+    "username": "b8b0a26ba6f563",
     "password": "guppies1",
-    "database": "heroku_65f456f11c8611d",
+    "database": "concert_review",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
